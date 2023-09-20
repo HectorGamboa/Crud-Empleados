@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block titulo %}
+{{object.first_name}} {{object.last_name}} 
+{% endblock titulo %}
+  
+
+{% block content %}
+{% include 'includes/header.html' %}
+
+<div class=" grid-container">
+<div class="grid-x grid-margin-x align-center">
+  
+  <div class="card large-4" style="width: 300px; margin-top: 10px;">
+    <div class="card-divider">
+      {{empleado.get_job_display}}
+    </div>
+   
+   {% if empleado.avatar %}
+   <img src="{{empleado.avatar.url}}">
+   {% else%}
+   <img src="{% static 'img/slider2.jpg' %}">
+   {% endif %}
+    
+    <div class="card-section">
+      <h4><strong>Nombre: </strong>    {{empleado.first_name}} {{empleado.last_name}}  </h4>
+      <h5><strong>departamento: </strong>    {{empleado.departamento.short_name}} </h5>
+      <p>
+        <span class="label">Habilidades:</span>
+        <ul>
+        {% for habilidad in empleado.habilidades.all %}
+            <li>{{ habilidad.habilidad}}</li>
+        {% endfor %}
+    </ul>
+ <p>{{ empleado.hoja_vida | safe }}
+</p>
+    </div>
+  </div>
+
+</div>
+</div>
+{% endblock content %}
+
+
+    

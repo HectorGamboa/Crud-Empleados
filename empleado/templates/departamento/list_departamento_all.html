@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% include 'includes/header.html' %}   
+    <div class="grid-container">
+        <h1 class="cell">Lista de departamentos</h1>
+        <div class="cell">
+            <table class="unstriped">
+                <thead>
+                  <tr>
+                    <th >Area</th>
+                    <th >Nombre</th>
+                    <th >Opciones</th>
+                  </tr>
+                </thead>
+                <tbody>
+                 
+                 {% for departamento in departamento %}
+                 <tr>
+                    <td>{{departamento.name}}</td>
+                    <td>{{departamento.short_name}}</td>
+                    <form action="" method="get">
+                      {% csrf_token %}
+                      <td><a class="button" href="{% url 'empleado_app:empleados_area' departamento.short_name %}">Ver empleado</a></td>
+                    </form>
+                  </tr>
+                 {% endfor %}
+                    
+                 
+                </tbody>
+              </table>
+        </div>
+    </div>
+    
+
+  
+
+{% endblock content %}
+    

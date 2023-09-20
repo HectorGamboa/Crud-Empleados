@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+
+{% block titulo %}
+Listar Empleados por areas
+{% endblock titulo %}
+
+
+{% block content %}
+
+{% include 'includes/header.html' %}
+
+<div class="grid-container">
+    <div class="grid-x">
+        <div class="cell">
+            <h1> Listar Empleados por areas</h1>
+        </div>
+        <div class="cell">
+            <table class="unstriped">
+                <thead>
+                    <td>ID</td>
+                    <td>Nombres</td>
+                    <td>Apellidos</td>
+                    <td>Departamento</td>
+                    <td>Acción</td>
+                </thead>
+                <tbody>
+
+                    {% for e in empleados %}
+                    <tr>
+                        <td>{{e.id}}</td>
+                        <td>{{e.first_name}}</td>
+                        <td>{{e.last_name}}</td>
+                        <td>{{e.departamento}}</td>
+                        <td><a href="{% url 'empleado_app:empleado_detail' e.id %}" class="button">Ver</a></td>
+
+                    </tr>
+                    {% endfor %}
+
+
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div> 
+
+
+
+
+
+
+    {% endblock content %}

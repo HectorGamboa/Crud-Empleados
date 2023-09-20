@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+
+{% block titulo %}
+Actualizar empleado
+{% endblock titulo %}
+
+
+{% block content %}
+{% include 'includes/header.html' %}
+<div class="grid-container">
+<div class="grid-x">
+    <div class="cell">
+        <h1>Actualizar empleado</h1>
+    </div>
+ <div class="cell">
+    <form class="grid-x grid-margin-x" action="" method="post">
+        {% csrf_token %}
+
+         
+            <div class=" cell large-6">
+              <label>Nombres
+                {{form.first_name}}
+              </label>
+            </div>
+            <div class="cell large-6">
+                <label>Apellidos
+                  {{form.last_name}}
+                </label>
+              </div>
+              <div class="cell large-6">
+                <label>Trabajo
+                  {{form.job}}
+                </label>
+              </div>
+              <div class="cell large-6">
+                <label>Area
+                  {{form.departamento}}
+                </label>
+              </div>
+              <div class="cell large-6">
+                <label>habilidades
+                  {{form.habilidades}}
+                </label>
+              </div>
+
+              <div class="cell">
+                <button class="submit success button">Actualizar</button>
+              </div>
+
+      </form>
+
+</div>
+</div>
+{% endblock content %}
+    
+    
+

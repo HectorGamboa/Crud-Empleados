@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+
+{% block titulo %}
+    Nuevo departamento
+{% endblock titulo %}
+    
+{% block content %}
+{% include 'includes/header.html' %}
+
+<div class="grid-container">
+    <div class=" grid-x">
+        <h1 style="text-align: left;" class="cell">Registrar nuevo departamento</h1>
+
+        <form  class="cell callout grid-x grid-margin-x" action="" method="POST" >
+            {% csrf_token %}
+        <div class="cell ">
+            <h3>Empleado</h3>
+        </div>
+        <div class="medium-6 cell">
+            <label>Nombres:
+                {{form.nombre}}
+            </label>
+        </div>
+        <div class="medium-6 cell">
+            <label>Apellido:
+                {{form.apellido}}
+            </label>
+        </div>
+          
+        <div class="cell ">
+            <h3> Datos Departamento</h3>
+        </div>
+        <div class="medium-6 cell">
+            <label>Departamento:
+        
+                {{form.departamento}} 
+            </label>
+        </div>
+        <div class="medium-6 cell">
+            <label>Abreviacion:
+                {{form.shortname}} 
+            </label>
+        </div>
+        
+        <div class="medium-6 cell">
+            <button type="submit" class=" button success">Guardar</button>
+        </div>
+        
+           
+        </form>    
+    </div>
+</div>
+{% endblock content %}
+    
